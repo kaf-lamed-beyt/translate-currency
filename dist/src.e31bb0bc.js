@@ -28364,10 +28364,10 @@ var App = /*#__PURE__*/function (_React$Component) {
       } // http request
 
 
-      fetch(tuforty_endpoint, dataParams).then(function (data) {
-        return data.json();
-      }).then(function (response) {
-        console.log(response);
+      fetch(tuforty_endpoint, dataParams).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        console.log(data);
       }).catch(function (error) {
         console.log(error);
       });

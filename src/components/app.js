@@ -16,7 +16,7 @@ const dataParams = {
   headers: {
     'content-type': 'application/json; charset=UTF-8',
     Authorization: `Bearer ${api_key}`,
-    'Access-Control-Allow-Origin': 'http://localhost:1234/'
+    'Access-Control-Allow-Origin': 'http://localhost:1234/',
   },
 }
 export default class App extends React.Component {
@@ -39,11 +39,9 @@ export default class App extends React.Component {
     // http request
 
     fetch(tuforty_endpoint, dataParams)
+      .then((response) => response.json())
       .then((data) => {
-        return data.json()
-      })
-      .then((response) => {
-        console.log(response)
+        console.log(data)
       })
       .catch((error) => {
         console.log(error)
