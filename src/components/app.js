@@ -1,4 +1,5 @@
 import React from 'react'
+import Input from './InputCurrency'
 
 // query parameters
 const moneyValue = '506.54'
@@ -36,22 +37,32 @@ export default class App extends React.Component {
       return <p>Loading ...</p>
     }
 
-    // http request
-
     fetch(tuforty_endpoint, dataParams)
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data)
-      })
+      .then((data) =>
+        this.setState({ translatedResult: data.translatedResult })
+      )
       .catch((error) => {
         console.log(error)
       })
   }
 
   render() {
+    const { translatedResult } = this.state
+
     return (
       <div className="app__base">
         <h1>Welcome</h1>
+        <Input />
+        {translatedResult.map((currency_details, index) => {
+          return (
+            <div key={index}>
+              <h3>{currency_details.language}</h3>
+              <p>{currency_details.whole_unit}</p>
+              <p>{currency_details.currency}</p>
+            </div>
+          )
+        })}
       </div>
     )
   }
