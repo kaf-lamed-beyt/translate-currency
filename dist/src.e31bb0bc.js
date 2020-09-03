@@ -28340,11 +28340,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _InputCurrency = _interopRequireDefault(require("./InputCurrency"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -28368,25 +28372,26 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-// query parameters
+var fetch = require(); // query parameters
+
+
 var moneyValue = '506.54';
 var currency = 'NGN';
 var language = 'en'; // api globals
 
 var api_key = 'tuforty_159FvsJ263hXlcbEJVCpxvW9VqWm9JBRF06uhuhMoeAELDuTEMGjdFUvgHxn';
-var tuforty_endpoint = "https://tuforty.com/api/v1/translator/money?value=".concat(moneyValue, "&language=").concat(language, "&currency=").concat(currency);
-var dataParams = {
-  method: 'GET',
-  mode: 'no-cors',
-  headers: {
-    'content-type': 'application/json; charset=UTF-8',
-    Authorization: "Bearer ".concat(api_key),
-    'Access-Control-Allow-Origin': 'http://localhost:1234/'
-  }
-};
+var tuforty_endpoint = "https://tuforty.com/api/v1/translator/money?value=".concat(moneyValue, "&language=").concat(language, "&currency=").concat(currency); // const dataParams = {
+//   method: 'GET',
+//   mode: 'no-cors',
+//   headers: {
+//     'content-type': 'application/json; charset=UTF-8',
+//     Authorization: `Bearer ${api_key}`,
+//     'Access-Control-Allow-Origin': 'http://localhost:1234/',
+//   },
+// }
 
-var App = /*#__PURE__*/function (_React$Component) {
-  _inherits(App, _React$Component);
+var App = /*#__PURE__*/function (_Component) {
+  _inherits(App, _Component);
 
   var _super = _createSuper(App);
 
@@ -28397,7 +28402,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      translatedResult: [],
+      result: [],
       isLoading: false
     };
     return _this;
@@ -28406,40 +28411,36 @@ var App = /*#__PURE__*/function (_React$Component) {
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
-
       var isLoading = this.state.isLoading;
 
       if (isLoading) {
-        return _react.default.createElement("p", null, "Loading ...");
+        return _react.default.createElement("p", null, "Loading...");
       }
 
-      fetch(tuforty_endpoint, dataParams).then(function (response) {
+      fetch(tuforty_endpoint, {
+        method: 'GET',
+        mode: "no-cors",
+        headers: {
+          'content-type': 'application/json; charset=UTF-8',
+          Authorization: "Bearer ".concat(api_key)
+        }
+      }).then(function (response) {
         return response.json();
       }).then(function (data) {
-        return _this2.setState({
-          translatedResult: data.translatedResult
-        });
-      }).catch(function (error) {
-        console.log(error);
+        return console.log(data);
       });
     }
   }, {
     key: "render",
     value: function render() {
-      var translatedResult = this.state.translatedResult;
       return _react.default.createElement("div", {
         className: "app__base"
-      }, _react.default.createElement("h1", null, "Welcome"), _react.default.createElement(_InputCurrency.default, null), translatedResult.map(function (currency_details, index) {
-        return _react.default.createElement("div", {
-          key: index
-        }, _react.default.createElement("h3", null, currency_details.language), _react.default.createElement("p", null, currency_details.whole_unit), _react.default.createElement("p", null, currency_details.currency));
-      }));
+      });
     }
   }]);
 
   return App;
-}(_react.default.Component);
+}(_react.Component);
 
 exports.default = App;
 },{"react":"../node_modules/react/index.js","./InputCurrency":"components/InputCurrency.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
