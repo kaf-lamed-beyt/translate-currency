@@ -28466,6 +28466,7 @@ var App = /*#__PURE__*/function (_Component) {
       currencyCode: '',
       moneyValue: '',
       language: '',
+      translatedResult: [],
       isLoading: false
     };
     return _this;
@@ -28474,6 +28475,8 @@ var App = /*#__PURE__*/function (_Component) {
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       var _this$state = this.state,
           currencyCode = _this$state.currencyCode,
           moneyValue = _this$state.moneyValue,
@@ -28486,17 +28489,21 @@ var App = /*#__PURE__*/function (_Component) {
         return _react.default.createElement("p", null, "Loading...");
       }
 
-      (0, _fetchJsonp.default)(API_URL, {
+      fetch(API_URL, {
         method: 'GET',
-        mode: "no-cors",
+        mode: 'no-cors',
         headers: {
           'content-type': 'application/json; charset=UTF-8',
           Authorization: "Bearer ".concat(API_KEY)
         }
       }).then(function (response) {
         return response.json();
-      }).then(function (data) {
-        return console.log(data);
+      }).then(function (response) {
+        return _this2.setState({
+          translatedResult: response.translatedResult
+        }).catch(function (error) {
+          return console.log(error);
+        });
       });
     }
   }, {
@@ -28626,7 +28633,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33319" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41911" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
