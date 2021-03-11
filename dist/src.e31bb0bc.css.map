@@ -1,1 +1,0 @@
-{"version":3,"sources":["scss/global.scss"],"names":[],"mappings":"AAAA,CAAC,CAAC;EACA,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,UAAU,GACvB;;AAED,UAAU,CAAC,EAAE,CAAC;EACZ,UAAU,EAAE,MAAM,GACnB","file":"src.e31bb0bc.css","sourceRoot":"../src","sourcesContent":["* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\n.app__base h1 {\n  text-align: center;\n}\n"]}

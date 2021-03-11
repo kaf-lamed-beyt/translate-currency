@@ -1,0 +1,20 @@
+import React from "react";
+import "../styles/globals.css";
+import Head from "next/head";
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <React.Fragment>
+      <Head>
+        <title>Translate Moni</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="theme-color" content="#072a4d" />
+      </Head>
+      <div>
+        <Component {...pageProps} />
+      </div>
+    </React.Fragment>
+  );
+}
+
+export default MyApp;
