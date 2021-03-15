@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 const Layout = ({ children }) => {
   return (
     <React.Fragment>
-      <Header title="Moni for differnt languages" />
+      <Header title="Moni for different languages" />
       {children}
       <Footer />
     </React.Fragment>

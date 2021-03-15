@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Button = ({ className, children, ...props }) => {
   return (
-    <button className={`button ${className}`} {...props}>
+    <button className={`btn ${className}`} {...props}>
       {children}
     </button>
   );
