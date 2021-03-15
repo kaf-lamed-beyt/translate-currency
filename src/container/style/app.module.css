@@ -24,13 +24,27 @@
 .resultRoot div {
   width: 46%;
 }
-.amount h1 {
+.amount .h1 {
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100px;
+  font-weight: bolder;
+  color: var(--primary);
+  margin-top: -2%;
   text-align: center;
   font-size: 45px;
-  padding: 30px 0;
-  font-weight: bolder;
+  background: var(--ghost);
 }
-.inwords .title {
+.amount .h1::placeholder {
+  text-align: center;
+  font-size: 45px;
+  padding: 10px 0;
+  font-weight: bolder;
+  color: var(--primary);
+}
+.inwords .title,
+.amount .title {
   text-align: center;
   font-size: 22px;
   /* font-weight: bold; */
@@ -48,8 +62,8 @@
   margin-top: 7%;
 }
 .currencies {
-  border: 1px solid rgb(208, 201, 201);
-  width: 35%;
+  border: 1px solid var(--input-ghost);
+  width: 55%;
   height: 50px;
   border-radius: 3px;
   background: var(--ghost);
@@ -72,7 +86,7 @@
     width: 100%;
   }
   .inputRoot {
-    margin-bottom: 20%;
+    /* margin-bottom: 20%; */
     margin-top: 3%;
   }
 }

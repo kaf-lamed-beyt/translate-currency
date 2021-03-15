@@ -3,6 +3,9 @@ import "../styles/globals.css";
 import "../styles/variables.css";
 import Head from "next/head";
 
+import { Provider } from "react-redux";
+import store from "../src/store";
+
 function MyApp({ Component, pageProps }) {
   return (
     <React.Fragment>
@@ -11,9 +14,9 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#072a4d" />
       </Head>
-      <div>
+      <Provider store={store}>
         <Component {...pageProps} />
-      </div>
+      </Provider>
     </React.Fragment>
   );
 }

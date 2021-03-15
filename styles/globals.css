@@ -71,7 +71,7 @@ a {
 }
 .form-control {
   height: 50px;
-  width: 62%;
+  width: 37%;
   border: 1px solid var(--input-ghost);
   background: var(--ghost);
   border-radius: 3px;

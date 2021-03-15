@@ -11,17 +11,24 @@ const App = () => {
   });
 
   const handleInputChange = (name) => (e) => {
-    return {
+    setTranslation({
       ...name,
       [name]: e.target.value,
-    };
+    });
   };
 
   return (
     <section className={style.root}>
       <div className={style.resultRoot}>
         <Card className={style.amount}>
-          <h1>NGN 50,000</h1>
+          <p className={style.title}>Amount</p>
+          <input
+            name="amount"
+            className={style.h1}
+            type="text"
+            defaultValue={translation.amount}
+            placeholder="NGN50,000"
+          />
         </Card>
         <Card className={style.inwords}>
           <p className={style.title}>Amount in words</p>
@@ -37,17 +44,18 @@ const App = () => {
         <input
           name="amount"
           className="form-control"
-          type="text"
+          type="number"
+          value={translation.amount}
           placeholder="how much do you want to translate?"
           onChange={handleInputChange("amount")}
         />
         <select
           name="currencies"
           id="currency_code"
-          value="language"
+          defaultValue="language"
           className={style.currencies}
         >
-          <option value="ngn">Nigerian Naira</option>
+          <option value={translation.currencyCode}>Nigerian Naira</option>
           <option value="ngn">Indian Rupees</option>
           <option value="ngn">Chinese Yuan</option>
           <option value="ngn">Canadian Dollars</option>
