@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap");
 a {
   color: inherit;
   text-decoration: none;
@@ -7,7 +7,7 @@ a {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 /* global components styles */
 .btn {
@@ -57,7 +57,7 @@ a {
   color: var(--default);
   text-transform: capitalize;
   font-size: 23px;
-  font-weight: bolder;
+  font-weight: 400;
 }
 .root-footer {
   height: 100%;
@@ -71,7 +71,7 @@ a {
 }
 .form-control {
   height: 50px;
-  width: 37%;
+  width: 100%;
   border: 1px solid var(--input-ghost);
   background: var(--ghost);
   border-radius: 3px;
@@ -83,6 +83,9 @@ a {
 }
 .form-control:focus {
   border: 1px solid var(--primary);
+}
+.controls {
+  margin: 0 12px 12px 0;
 }
 
 @media only scren and (max-width: 768px) {

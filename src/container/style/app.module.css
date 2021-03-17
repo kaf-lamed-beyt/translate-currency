@@ -12,6 +12,25 @@
 .root button svg {
   font-size: 26px;
 }
+.amount .h1 {
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100px;
+  font-weight: bolder;
+  color: var(--primary);
+  margin-top: -1%;
+  text-align: center;
+  font-size: 45px;
+  background: var(--ghost);
+}
+.amount .h1::placeholder {
+  text-align: center;
+  font-size: 45px;
+  padding: 10px 0;
+  font-weight: bolder;
+  color: var(--primary);
+}
 .resultRoot {
   display: flex;
   justify-content: space-between;
@@ -24,30 +43,11 @@
 .resultRoot div {
   width: 46%;
 }
-.amount .h1 {
-  border: none;
-  outline: none;
-  width: 100%;
-  height: 100px;
-  font-weight: bolder;
-  color: var(--primary);
-  margin-top: -2%;
-  text-align: center;
-  font-size: 45px;
-  background: var(--ghost);
-}
-.amount .h1::placeholder {
-  text-align: center;
-  font-size: 45px;
-  padding: 10px 0;
-  font-weight: bolder;
-  color: var(--primary);
-}
 .inwords .title,
 .amount .title {
   text-align: center;
   font-size: 22px;
-  /* font-weight: bold; */
+  font-weight: 400;
 }
 .inwords .translated {
   font-size: 18px;
@@ -58,12 +58,12 @@
   margin: 0 auto;
   width: 800px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly !important;
   margin-top: 7%;
 }
 .currencies {
   border: 1px solid var(--input-ghost);
-  width: 55%;
+  width: 100%;
   height: 50px;
   border-radius: 3px;
   background: var(--ghost);
@@ -86,7 +86,6 @@
     width: 100%;
   }
   .inputRoot {
-    /* margin-bottom: 20%; */
     margin-top: 3%;
   }
 }

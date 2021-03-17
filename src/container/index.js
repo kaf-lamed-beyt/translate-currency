@@ -4,6 +4,8 @@ import Card from "../components/Card";
 import Button from "../components/Button";
 import { BsMic } from "react-icons/bs";
 
+import { currencies, languages } from "../../src/currencies";
+
 const App = () => {
   const [translation, setTranslation] = React.useState({
     amount: "",
@@ -43,23 +45,45 @@ const App = () => {
       <div className={style.inputRoot}>
         <input
           name="amount"
-          className="form-control"
+          className="form-control controls"
           type="number"
           value={translation.amount}
-          placeholder="how much do you want to translate?"
+          placeholder="amount"
           onChange={handleInputChange("amount")}
         />
         <select
           name="currencies"
           id="currency_code"
           defaultValue="language"
-          className={style.currencies}
+          className={`controls ${style.currencies}`}
         >
-          <option value={translation.currencyCode}>Nigerian Naira</option>
-          <option value="ngn">Indian Rupees</option>
-          <option value="ngn">Chinese Yuan</option>
-          <option value="ngn">Canadian Dollars</option>
-          <option value="ngn">Ghanian Cedis</option>
+          <option value="value" defaultValue>
+            Currency
+          </option>
+          {currencies.map((currency, index) => {
+            return (
+              <option value={currency.currecny_code} key={index}>
+                {currency.name}
+              </option>
+            );
+          })}
+        </select>
+        <select
+          name="currencies"
+          id="currency_code"
+          defaultValue="language"
+          className={`controls ${style.currencies}`}
+        >
+          <option value="value" defaultValue>
+            Language
+          </option>
+          {languages.map((language, index) => {
+            return (
+              <option value={language.code} key={index}>
+                {language.lang}
+              </option>
+            );
+          })}
         </select>
       </div>
     </section>
